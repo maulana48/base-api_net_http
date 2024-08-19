@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"gorm.io/driver/postgres"
+	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
@@ -18,7 +18,7 @@ func GetSqlConnection() (*gorm.DB, error) {
 		os.Getenv("PG_PORT"),
 	)
 
-	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		return nil, err
